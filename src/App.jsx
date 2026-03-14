@@ -4,6 +4,13 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+
+/** React  এ JSX এ style add করার ৩টা common নিয়ম
+ * (External CSS) থেকে Style : CSS file এ style লিখো & JSX এ className ব্যবহার করো
+ * একটা JavaScript object বানিয়ে সেটাকে Object Variable থেকে Style  হিসেবে use করা যায়।
+ * JSX এর ভিতরেই সরাসরি object লিখে inline style দেওয়া।
+ * 
+*/ 
 function App() {
   const [count, setCount] = useState(0)
 
@@ -29,7 +36,12 @@ function App() {
       <Person name="Ety" prof="Student"></Person>
       <Student></Student>
 
+      <Product name="laptop" price="30000"></Product>
+      <Product name="Tablet" price="8000"></Product>
+
       <Friends> </Friends>
+      <FullName fName="Sokhina" lName="Begum"></FullName>
+      <FullName fName="Kamruzzaman" ></FullName>
       <Div></Div>
       <Friends> </Friends>
      
@@ -54,8 +66,7 @@ function Person(props) {
   )
 }
 
-function Friends() {
-  
+function Friends() { 
   const ulStyle = {
     color: 'black',
     backgroundColor: 'gray'
@@ -89,3 +100,23 @@ function Student() {
 }
 
 
+function Product({name, price}) {
+  return (
+    <div style={{
+      padding: "10px",
+      margin: "20px",
+      border: "2px solid "
+    }}>
+      <p>Product Name: { name}</p>
+      <p>Price: { price}</p>
+   </div>
+  )
+}
+function FullName({fName, lName=" "}) {
+  return (
+    <div>
+      <p>First Name: { fName}</p>
+      <p>Last Name: { lName}</p>
+    </div>
+  )
+}
