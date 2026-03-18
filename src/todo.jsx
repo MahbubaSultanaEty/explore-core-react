@@ -66,9 +66,9 @@ export default function ToDo({ task, isDone, time = 0 }) {
     let listItem;
 
     if (isDone) {
-        listItem = <li>Done: {task}, Duration: { time}</li>
+        listItem = <li>Done: {task}, Duration: { time? time: "not done yet"}</li>
     } else {
-        listItem = <li>Not Done: {task}, Duration { time}</li>
+        listItem = <li>Not Done: {task}, Duration: { time? time: "not done yet"}</li>
     }
     return listItem;
 }
