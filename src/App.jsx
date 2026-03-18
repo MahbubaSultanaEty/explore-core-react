@@ -3,6 +3,7 @@ import './App.css'
 import ToDo from './todo';
 import Flowers from './flowers';
 import Products from './products';
+import Library from './library';
 
 /** React  এ JSX এ style add করার ৩টা common নিয়ম
  * (External CSS) থেকে Style : CSS file এ style লিখো & JSX এ className ব্যবহার করো
@@ -14,9 +15,16 @@ function App() {
   let time = 80;
   const flowers = ['Rosemary', 'rose', 'sunflower', 'lilly', 'tulip'];
   const products = [
-    {id: 1, name: "Mobile", price: 30000},
-    {id: 2, name: "Laptop", price: 70000},
-    {id: 3, name: "Tablet", price: 8000},
+    { id: 1, name: "Mobile", price: 30000 },
+    { id: 2, name: "Laptop", price: 70000 },
+    { id: 3, name: "Tablet", price: 8000 },
+  ];
+
+  const books = [
+    {id: 1, name:"Physics", price: 300},
+    {id: 2, name:"Bioligy", price: 300},
+    {id: 3, name:"Chemistry", price: 300},
+    {id: 4, name:"Math", price: 300},
   ]
 
   return (
@@ -26,6 +34,8 @@ function App() {
         <div>
           <h1>React Core Concept</h1>
         </div>
+
+        <Library books={books}></Library>
 
         {
           products.map(product => <Products key={product.id} product={product}></Products>)
